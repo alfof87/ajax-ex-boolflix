@@ -9,9 +9,13 @@ function functionName() {
     },
     success: function(data){
       var title = data["result"]["title"];
-      var originalT = data["result"]["original_title"];
-      var originalL = data["result"]["original_language"];
-      var vote = data["result"]["vote_average"];
+      // var originalT = data["result"]["original_title"];
+      // var originalL = data["result"]["original_language"];
+      // var vote = data["result"]["vote_average"];
+      for (var i = 0; i < result.length; i++) {
+        var element = $(".film")
+        element.append(" "+ result[i]["title"]);
+      }
     },
     error: function(error){
       console.log("error", error);
