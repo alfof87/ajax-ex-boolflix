@@ -11,7 +11,7 @@ function functionName() {
       var originalT = data["result"]["original_title"];
       var originalL = data["result"]["original_language"];
       var vote = data["result"]["vote_average"];
-      console.log(title);
+
     },
     error: function(error){
       console.log("error", error);
