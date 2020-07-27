@@ -3,8 +3,9 @@ function functionName() {
     url: "https://api.themoviedb.org/3/search/movie",
     method: "GET",
     data: {
-			api_key: 'd7a215969de8ee9ea8bd1af46e9cf6f0',
+			api_key: "d7a215969de8ee9ea8bd1af46e9cf6f0",
       query: "ritorno+al+futuro"
+
     },
     success: function(data){
       var title = data["result"]["title"];
@@ -16,6 +17,7 @@ function functionName() {
     error: function(error){
       console.log("error", error);
     }
+
   });
 }
 
