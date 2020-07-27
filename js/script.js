@@ -4,7 +4,7 @@ function functionName() {
     method: "GET",
     data: {
 			api_key: "d7a215969de8ee9ea8bd1af46e9cf6f0",
-      query: "ritorno+al+futuro"
+      query: "title"
 
     },
     success: function(data){
@@ -12,7 +12,6 @@ function functionName() {
       var originalT = data["result"]["original_title"];
       var originalL = data["result"]["original_language"];
       var vote = data["result"]["vote_average"];
-
     },
     error: function(error){
       console.log("error", error);
