@@ -1,3 +1,4 @@
+///////////////////MILESTONE 1////////////////////////////////////
 function addSearchClickListener(){
   var target = $("#search");
   target.click(getMovies);
@@ -25,6 +26,7 @@ function getMovies() {
         var movie = movies[i];
         var movieHTML = compiled(movie);
         target.append(movieHTML);
+        console.log(target);
       }
     },
     error: function (err){
@@ -32,6 +34,8 @@ function getMovies() {
     }
   })
 }
+//////////////MILESTONE 2/////////////////////////////////////////////
+
 // function functionName() {
 //   $.ajax({
 //     url: "https://api.themoviedb.org/3/search/movie",
