@@ -25,14 +25,14 @@ function getMovies() {
       for (var i = 0; i < movies.length; i++) {
         var movie = movies[i];
         var vote = movie["vote_average"];
-        // var flag = movie["original_language"];
-        // movie["original_language"] = getFlags(flag);
+        var flag = movie["original_language"];
+        movie["original_language"] = getFlags(flag);
         movie["vote_average"] = getStars(vote);
         var movieHTML = compiled(movie);
         target.append(movieHTML);
         // movie["vote_average"] = "prova";
         // console.log(movie["vote_average"]);
-        // console.log(flag);
+        console.log(flag);
 
 
       }
@@ -58,18 +58,20 @@ for (var i = 0; i < 5; i++) {
 return result;
 }
 /////////BANDIERA///////
-// function getFlags(flag){
+function getFlags(flag){
 //
-//   // var result = "";
+  var result = "";
 //   // for (var i = 0; i < movies.length; i++) {
-//   //   if (flag == en) {
-//   //  result += '<img src="../img/en.png" alt="">';
-//   //   }else {
-//   //  result += '<i class="far fa-star"></i>';
-//   //   }
+    if (flag == "en") {
+   result += '<img src="../img/en.png" alt="">';
+ }else if (flag == "ja") {
+   result += '<img src="../img/jap.png" alt="">';
+ }else if (flag == "us") {
+   result += '<img src="../img/usa.png" alt="">';
+ }
 //   // }
 //   // return result;
-// }
+  }
 
 // function getStars(data){
 //   // var movies = data["results"];
@@ -98,5 +100,6 @@ return result;
 function init(){
   addSearchClickListener();
   getStars();
+  getFlags();
 }
 $(document).ready(init);
