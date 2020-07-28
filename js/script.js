@@ -33,6 +33,7 @@ function getMovies() {
         // movie["vote_average"] = "prova";
         // console.log(movie["vote_average"]);
         console.log(flag);
+        console.log(movie);
 
 
       }
