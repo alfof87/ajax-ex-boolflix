@@ -21,11 +21,15 @@ function getMovies() {
       var target = $("#results ul");
       var template = $("#movie-template").html();
       var compiled = Handlebars.compile(template);
-      console.log(data);
+
       for (var i = 0; i < movies.length; i++) {
         var movie = movies[i];
+        var vote = movie["vote_average"];
+        movie["vote_average"] = getStars(vote);
         var movieHTML = compiled(movie);
         target.append(movieHTML);
+        // movie["vote_average"] = "prova";
+        console.log(movie["vote_average"]);
 
       }
     },
@@ -36,51 +40,37 @@ function getMovies() {
 
 }
 //////////////MILESTONE 2/////////////////////////////////////////////
-function getStars(data){
-  // var movies = data["results"];
-  // var movie = movies[i];
-  var star = $("#star");
-  // console.log(star);
-if (star <= 2) {
-  $(".star1").removeClass(".hide");
-}else if (star <= 4) {
-  $(".star1, .star2").removeClass(".hide");
-}else if (star <= 6) {
-  $(".star1, .star2, .star3").removeClass(".hide");
-}else if (star <= 8) {
-  $(".star1, .star2, .star3, .star4").removeClass(".hide");
-}else if (star <= 10) {
-  $(".star1, .star2, .star3, .star4, .star5").removeClass(".hide");
- }
+function getStars(vote){
+vote = Math.round(vote / 2);
+var result = "";
+for (var i = 0; i < 5; i++) {
+  if (i < vote) {
+ result += '<i class="fas fa-star"></i>';
+  }else {
+ result += '<i class="far fa-star"></i>';
+  }
 }
-// function functionName() {
-//   $.ajax({
-//     url: "https://api.themoviedb.org/3/search/movie",
-//     method: "GET",
-//     data: {
-// 			api_key: "d7a215969de8ee9ea8bd1af46e9cf6f0",
-//       query: "title"
-//
-//     },
-//     success: function(data){
-//
-//       var title = data["result"]["title"];
-//       var originalT = data["result"]["original_title"];
-//       var originalL = data["result"]["original_language"];
-//       var vote = data["result"]["vote_average"];
-//       for (var i = 0; i < result.length; i++) {
-//         var element = $(".film");
-//         if (result[i] == 1) {
-//           element.append(result[i]);
-//         }
-//       }
-//     },
-//     error: function(error){
-//       console.log("error", error);
-//     }
-//
-//   });
-// }
+return result;
+
+}
+// function getStars(data){
+//   // var movies = data["results"];
+//   // var movie = movies[i];
+//   var star = $("#star");
+//   // console.log(star);
+//   if (star <= 2) {
+//     $(".star1").removeClass(".hide");
+//   }else if (star <= 4) {
+//     $(".star1, .star2").removeClass(".hide");
+//   }else if (star <= 6) {
+//     $(".star1, .star2, .star3").removeClass(".hide");
+//   }else if (star <= 8) {
+//     $(".star1, .star2, .star3, .star4").removeClass(".hide");
+//   }else if (star <= 10) {
+//     $(".star1, .star2, .star3, .star4, .star5").removeClass(".hide");
+//    }
+//   }
+//////////////////////////////////////////////////////////////////////////
 
 
 
