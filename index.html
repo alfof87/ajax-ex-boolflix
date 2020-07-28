@@ -10,16 +10,21 @@
   </head>
   <body>
 
-    <div class="flex-container">
-      <input id="film-input" type="text" name="" value="">
-      <button id="btn" type="button" name="button">cerca</button>
-      <ul class="film">
-      </ul>
+    <div class="container">
+      <div class="header">
+        <input id="query" type="text" name="" value="">
+        <button id="search" type="button" name="button">cerca</button>
+      </div>
+      <div class="results">
+        <ul></ul>
+      </div>
+
+
     </div>
 
     <script id="template" type="text/x-handlebars-template">
 
-
+      <li> {{ title}} </li>
 
     </script>
 
