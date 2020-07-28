@@ -25,11 +25,15 @@ function getMovies() {
       for (var i = 0; i < movies.length; i++) {
         var movie = movies[i];
         var vote = movie["vote_average"];
+        // var flag = movie["original_language"];
+        // movie["original_language"] = getFlags(flag);
         movie["vote_average"] = getStars(vote);
         var movieHTML = compiled(movie);
         target.append(movieHTML);
         // movie["vote_average"] = "prova";
-        console.log(movie["vote_average"]);
+        // console.log(movie["vote_average"]);
+        // console.log(flag);
+
 
       }
     },
@@ -40,6 +44,7 @@ function getMovies() {
 
 }
 //////////////MILESTONE 2/////////////////////////////////////////////
+/////VOTO/////
 function getStars(vote){
 vote = Math.round(vote / 2);
 var result = "";
@@ -51,8 +56,21 @@ for (var i = 0; i < 5; i++) {
   }
 }
 return result;
-
 }
+/////////BANDIERA///////
+// function getFlags(flag){
+//
+//   // var result = "";
+//   // for (var i = 0; i < movies.length; i++) {
+//   //   if (flag == en) {
+//   //  result += '<img src="../img/en.png" alt="">';
+//   //   }else {
+//   //  result += '<i class="far fa-star"></i>';
+//   //   }
+//   // }
+//   // return result;
+// }
+
 // function getStars(data){
 //   // var movies = data["results"];
 //   // var movie = movies[i];
