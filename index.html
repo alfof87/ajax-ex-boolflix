@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="./css/master.css">
   </head>
   <body>
@@ -24,7 +25,17 @@
 
     <script id="movie-template" type="text/x-handlebars-template">
 
-      <li> {{ title}} </li>
+      <li> {{ title }} </li>
+      <li> {{ original_title }} </li>
+      <li> {{ original_language }} </li>
+      <li id="star"> {{ vote_average }}
+        <i class="fas fa-star star1 hide"></i>
+        <i class="fas fa-star star2 hide"></i>
+        <i class="fas fa-star star3 hide"></i>
+        <i class="fas fa-star star4 hide"></i>
+        <i class="fas fa-star star5 hide"></i>
+      </li>
+
 
     </script>
 

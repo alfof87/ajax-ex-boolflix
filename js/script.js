@@ -21,21 +21,38 @@ function getMovies() {
       var target = $("#results ul");
       var template = $("#movie-template").html();
       var compiled = Handlebars.compile(template);
-
+      console.log(data);
       for (var i = 0; i < movies.length; i++) {
         var movie = movies[i];
         var movieHTML = compiled(movie);
         target.append(movieHTML);
-        console.log(target);
+
       }
     },
     error: function (err){
       console.log(err);
     }
   })
+
 }
 //////////////MILESTONE 2/////////////////////////////////////////////
-
+function getStars(data){
+  // var movies = data["results"];
+  // var movie = movies[i];
+  var star = $("#star");
+  // console.log(star);
+if (star <= 2) {
+  $(".star1").removeClass(".hide");
+}else if (star <= 4) {
+  $(".star1, .star2").removeClass(".hide");
+}else if (star <= 6) {
+  $(".star1, .star2, .star3").removeClass(".hide");
+}else if (star <= 8) {
+  $(".star1, .star2, .star3, .star4").removeClass(".hide");
+}else if (star <= 10) {
+  $(".star1, .star2, .star3, .star4, .star5").removeClass(".hide");
+ }
+}
 // function functionName() {
 //   $.ajax({
 //     url: "https://api.themoviedb.org/3/search/movie",
@@ -72,6 +89,6 @@ function getMovies() {
 
 function init(){
   addSearchClickListener();
-
+  getStars();
 }
 $(document).ready(init);
