@@ -126,13 +126,42 @@ function getSeries(query) {
 ///////////POSTER/////////////////////
 
 function addPoster(data){
-  var link = "https://image.tmdb.org/t/p/";
-  var dimension = "w185";
-  var poster = movie["poster_path"];
-  var movie = movies[i];
-  var result = link += dimension += poster;
-  movie.poster = `<img src="" alt="">`;
- console.log(result);
+
+  $.ajax({
+    url: "https://api.themoviedb.org/3/search/movie",
+    method: "GET",
+    data: {
+      api_key: "d7a215969de8ee9ea8bd1af46e9cf6f0",
+      query: query
+
+},
+    success: function (data){
+      var posters = data["results"];
+      var target = $("#results ul");
+      var template = $("#serie-template").html();
+      var compiled = Handlebars.compile(template);
+
+      for (var i = 0; i < posters.length; i++) {
+        var poster = posters[i];
+        var picture = poster["poster_path"];
+        poster.img = addPoster(picture);
+        var pos = poster["poster_path"];
+        poster.img = getStars(pos);
+        var posterHTML = compiled(poster);
+        target.append(posterHTML);
+      }
+    },
+    error: function (err){
+      console.log(err);
+    }
+  });
+  // var link = "https://image.tmdb.org/t/p/";
+  // var dimension = "w185";
+  // var poster = movie["poster_path"];
+  // var movie = movies[i];
+  // var result = link += dimension += poster;
+  // movie.poster = `<img src="img/https://image.tmdb.org/t/p/w185//f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" alt="">`;
+  // console.log(result);
 }
 
 // https://image.tmdb.org/t/p/w185/
