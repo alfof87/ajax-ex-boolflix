@@ -8,11 +8,11 @@ function getMovies(){
       query: query
     },
     success: function (data){
-      var title = data["result"];
-      var origTitle = data["result"];
-      var lenguage = data["result"];
-      var vote = data["result"];
-      console.log(title);
+      var title = data["name"];
+      var origTitle = data["original_name"];
+      var language = data["origin_country"];
+      var vote = data["vote_average"];
+      console.log();
     },
     error: function(error){
       console.log(error);
