@@ -131,6 +131,7 @@ function addPoster(data){
   var poster = movie["poster_path"];
   var movie = movies[i];
   var result = link += dimension += poster;
+  movie.poster = `<img src="" alt="">`;
  console.log(result);
 }
 
