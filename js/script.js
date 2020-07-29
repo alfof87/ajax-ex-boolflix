@@ -33,14 +33,19 @@ function getQuery(){
       success: function (data){
 
         var results = data["results"];
-        // console.log(results);
+        console.log(results);
         var template = $("#movie-template").html();
         var compiled = Handlebars.compile(template);
-        var target = $("#results ul");
-        var resultHTML = compiled(results);
-        target.append(resultHTML);
+        var target = $("#results");
+
+
+        for (var i = 0; i < results.length; i++) {
+          var resultHTML = compiled(results[i]);
+          target.append(resultHTML);
+        }
         // var title = data["name"];
         // console.log(title);
+
       },
       error: function(error){
         console.log(error);
