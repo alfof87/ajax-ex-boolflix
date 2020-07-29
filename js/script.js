@@ -12,7 +12,7 @@ function getMovies(){
       var origTitle = data["original_name"];
       var language = data["origin_country"];
       var vote = data["vote_average"];
-      console.log();
+      console.log(title);
     },
     error: function(error){
       console.log(error);
