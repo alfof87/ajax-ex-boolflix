@@ -43,7 +43,7 @@ function getMovies(query) {
         // movie["vote_average"] = "prova";
         // console.log(movie["vote_average"]);
         // console.log(flag);
-        // console.log(movie);
+        console.log(movie);
 
 
       }
@@ -86,6 +86,7 @@ return result;
 function getFlag(lang){
   if (lang === "it" || lang === "en") {
     return `<img class="flag" src="img/${lang}.png">`;
+
   }
   return lang;
 }
@@ -123,32 +124,47 @@ function getSeries(query) {
 }
 /////////////////MILESTONE 3/////////////
 ///////////POSTER/////////////////////
-function addPoster(){
-  // var poster = movie["poster_path"];
-  // movie["poster_path"] = addPoster(poster);
-  // var link = "https://image.tmdb.org/t/p/";
-  // var dimension = "w185";
-  // var poster = movie["poster_path"];
-  // var result = link += dimension += poster;
-  // return result;
-  // console.log(result);
+
+function addPoster(data){
   var link = "https://image.tmdb.org/t/p/";
   var dimension = "w185";
   var poster = movie["poster_path"];
+  var movie = movies[i];
+  var result = link += dimension += poster;
+ console.log(result);
+}
 
-  var result = "";
-  for (var i = 0; i < movies.length; i++) {
-    var result = link += dimension += poster;
-   //  if (i < vote) {
-   // result += '<i class="fas fa-star"></i>';
-   //  }else {
-   // result += '<i class="far fa-star"></i>';
-   //  }
-   console.log(result);
-  }
-  return result;
-
-  }
+// https://image.tmdb.org/t/p/w185/
+// function addPoster(){
+//   if (lang === "it" || lang === "en") {
+//     return `<img class="flag" src="img/${lang}.png">`;
+//   }
+//   return lang;
+//   // // var poster = movie["poster_path"];
+//   // // movie["poster_path"] = addPoster(poster);
+//   // // var link = "https://image.tmdb.org/t/p/";
+//   // // var dimension = "w185";
+//   // // var poster = movie["poster_path"];
+//   // // var result = link += dimension += poster;
+//   // // return result;
+//   // // console.log(result);
+//   // var link = "https://image.tmdb.org/t/p/";
+//   // var dimension = "w185";
+//   // var poster = movie["poster_path"];
+//   //
+//   // var result = "";
+//   // for (var i = 0; i < movies.length; i++) {
+//   //   var result = link += dimension += poster;
+//   //  //  if (i < vote) {
+//   //  // result += '<i class="fas fa-star"></i>';
+//   //  //  }else {
+//   //  // result += '<i class="far fa-star"></i>';
+//   //  //  }
+//   //  console.log(result);
+//   // }
+//   // return result;
+//
+//   }
 
 
 function init(){
