@@ -1,22 +1,46 @@
 ///////////////////MILESTONE 1////////////////////////////////////
-function getMovies(){
-  $.ajax({
-    url:"https://api.themoviedb.org/3/search/movie",
-    method: "GET",
-    data: {
-      api_key: "d7a215969de8ee9ea8bd1af46e9cf6f0",
-      query: query
-    },
-    success: function (data){
-      var title = data["name"];
-      var origTitle = data["original_name"];
-      var language = data["origin_country"];
-      var vote = data["vote_average"];
-      console.log(title);
-    },
-    error: function(error){
-      console.log(error);
-    }
+// function getMovies(){
+//   $.ajax({
+//     url:"https://api.themoviedb.org/3/search/movie",
+//     method: "GET",
+//     data: {
+//       api_key: "d7a215969de8ee9ea8bd1af46e9cf6f0",
+//       query: "matrix"
+//     },
+//     success: function (data){
+//       var title = data["results"];
+//       // var origTitle = data["original_name"];
+//       // var language = data["origin_country"];
+//       // var vote = data["vote_average"];
+//       // console.log(title);
+//     },
+//     error: function(error){
+//       console.log(error);
+//     }
+//   });
+// }
+function getQuery(){
+  var btn = $("#search");
+  btn.click(function() {
+    $.ajax({
+      url:"https://api.themoviedb.org/3/search/movie",
+      method: "GET",
+      data: {
+        api_key: "d7a215969de8ee9ea8bd1af46e9cf6f0",
+        query: query
+      },
+      success: function (data){
+        var title = data["name"];
+        var titles = title[i];
+        
+        if () {
+
+        }
+      },
+      error: function(error){
+        console.log(error);
+      }
+    });
   });
 }
 
@@ -224,6 +248,7 @@ function init(){
   // getStars();
   // getFlag();
   // addPoster();
-  getMovies();
+  // getMovies();
+  getQuery();
 }
 $(document).ready(init);
