@@ -15,9 +15,7 @@ function startSearch(){
   getSeries(query);
 }
 function getMovies(query) {
-  var target = $("#query");
-  var query = target.val();
-  target.val("");
+
   $.ajax({
 
         url: "https://api.themoviedb.org/3/search/movie",
@@ -44,8 +42,8 @@ function getMovies(query) {
         target.append(movieHTML);
         // movie["vote_average"] = "prova";
         // console.log(movie["vote_average"]);
-        console.log(flag);
-        console.log(movie);
+        // console.log(flag);
+        // console.log(movie);
 
 
       }
@@ -125,13 +123,38 @@ function getSeries(query) {
 }
 /////////////////MILESTONE 3/////////////
 ///////////POSTER/////////////////////
+function addPoster(){
+  // var poster = movie["poster_path"];
+  // movie["poster_path"] = addPoster(poster);
+  // var link = "https://image.tmdb.org/t/p/";
+  // var dimension = "w185";
+  // var poster = movie["poster_path"];
+  // var result = link += dimension += poster;
+  // return result;
+  // console.log(result);
+  var link = "https://image.tmdb.org/t/p/";
+  var dimension = "w185";
+  var poster = movie["poster_path"];
 
+  var result = "";
+  for (var i = 0; i < movies.length; i++) {
+    var result = link += dimension += poster;
+   //  if (i < vote) {
+   // result += '<i class="fas fa-star"></i>';
+   //  }else {
+   // result += '<i class="far fa-star"></i>';
+   //  }
+   console.log(result);
+  }
+  return result;
+
+  }
 
 
 function init(){
   addSearchClickListener();
   getStars();
   getFlag();
-
+  addPoster();
 }
 $(document).ready(init);
