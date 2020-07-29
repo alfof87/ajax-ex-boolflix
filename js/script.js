@@ -123,7 +123,8 @@ function getSeries(query) {
     }
   });
 }
-
+/////////////////MILESTONE 3/////////////
+///////////POSTER/////////////////////
 
 
 
@@ -131,6 +132,6 @@ function init(){
   addSearchClickListener();
   getStars();
   getFlag();
-  
+
 }
 $(document).ready(init);
