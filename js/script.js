@@ -22,6 +22,7 @@
 function getQuery(){
   var btn = $("#search");
   btn.click(function() {
+    var query = $("#query").val();
     $.ajax({
       url:"https://api.themoviedb.org/3/search/movie",
       method: "GET",
@@ -30,12 +31,16 @@ function getQuery(){
         query: query
       },
       success: function (data){
-        var title = data["name"];
-        var titles = title[i];
-        
-        if () {
 
-        }
+        var results = data["results"];
+        // console.log(results);
+        var template = $("#movie-template").html();
+        var compiled = Handlebars.compile(template);
+        var target = $("#results ul");
+        var resultHTML = compiled(results);
+        target.append(resultHTML);
+        // var title = data["name"];
+        // console.log(title);
       },
       error: function(error){
         console.log(error);
@@ -43,6 +48,7 @@ function getQuery(){
     });
   });
 }
+
 
 // function addSearchClickListener(){
 //   var target = $("#search");
