@@ -1,12 +1,23 @@
 ///////////////////MILESTONE 1////////////////////////////////////
 function addSearchClickListener(){
   var target = $("#search");
-  target.click(getMovies);
+  target.click(startSearch);
 }
-function getMovies() {
+function startSearch(){
   var target = $("#query");
   var query = target.val();
+  target.val("");
 
+  var targetResult = $("#results ul");
+  targetResult.text("");
+
+  getMovies(query);
+  getSeries(query);
+}
+function getMovies(query) {
+  var target = $("#query");
+  var query = target.val();
+  target.val("");
   $.ajax({
 
         url: "https://api.themoviedb.org/3/search/movie",
@@ -19,6 +30,7 @@ function getMovies() {
     success: function(data){
       var movies = data["results"];
       var target = $("#results ul");
+      target.text("");
       var template = $("#movie-template").html();
       var compiled = Handlebars.compile(template);
 
@@ -26,7 +38,7 @@ function getMovies() {
         var movie = movies[i];
         var vote = movie["vote_average"];
         var flag = movie["original_language"];
-        movie["original_language"] = getFlags(flag);
+        movie["original_language"] = getFlag(flag);
         movie["vote_average"] = getStars(vote);
         var movieHTML = compiled(movie);
         target.append(movieHTML);
@@ -59,41 +71,58 @@ for (var i = 0; i < 5; i++) {
 return result;
 }
 /////////BANDIERA///////
-function getFlags(flag){
-//
-  var result = "";
-//   // for (var i = 0; i < movies.length; i++) {
-    if (flag == "en") {
-   result += '<img src="../img/en.png" alt="">';
- }else if (flag == "ja") {
-   result += '<img src="../img/jap.png" alt="">';
- }else if (flag == "us") {
-   result += '<img src="../img/usa.png" alt="">';
- }
+// function getFlags(flag){
+// //
+//   var result = "";
+// //   // for (var i = 0; i < movies.length; i++) {
+//     if (flag == "en") {
+//    result += '<img src="../img/en.png" alt="">';
+//  }else if (flag == "ja") {
+//    result += '<img src="../img/jap.png" alt="">';
+//  }else if (flag == "us") {
+//    result += '<img src="../img/usa.png" alt="">';
+//  }
 //   // }
 //   // return result;
-  }
-
-// function getStars(data){
-//   // var movies = data["results"];
-//   // var movie = movies[i];
-//   var star = $("#star");
-//   // console.log(star);
-//   if (star <= 2) {
-//     $(".star1").removeClass(".hide");
-//   }else if (star <= 4) {
-//     $(".star1, .star2").removeClass(".hide");
-//   }else if (star <= 6) {
-//     $(".star1, .star2, .star3").removeClass(".hide");
-//   }else if (star <= 8) {
-//     $(".star1, .star2, .star3, .star4").removeClass(".hide");
-//   }else if (star <= 10) {
-//     $(".star1, .star2, .star3, .star4, .star5").removeClass(".hide");
-//    }
 //   }
+function getFlag(lang){
+  if (lang === "it" || lang === "en") {
+    return `<img class="flag" src="img/${lang}.png">`;
+  }
+  return lang;
+}
 //////////////////////////////////////////////////////////////////////////
+///////SERIE////////////////
+function getSeries(query) {
+  $.ajax({
+    url:"https://api.themoviedb.org/3/search/tv",
+    method: "GET",
+    data:{
+      api_key: "d7a215969de8ee9ea8bd1af46e9cf6f0",
+      query: query
+    },
+    success: function (data){
+      var series = data["results"];
 
+      var target = $("#results ul");
+      var template = $("#serie-template").html();
+      var compiled = Handlebars.compile(template);
 
+      for (var i = 0; i < series.length; i++) {
+        var serie = series[i];
+        var vote = serie["vote_average"];
+        serie.star = getStars(vote);
+        var lang = serie["vote_average"];
+        serie.flag = getStars(lang);
+        var serieHTML = compiled(serie);
+        target.append(serieHTML);
+      }
+    },
+    error: function (err){
+      console.log(err);
+    }
+  });
+}
 
 
 
@@ -101,6 +130,7 @@ function getFlags(flag){
 function init(){
   addSearchClickListener();
   getStars();
-  getFlags();
+  getFlag();
+  
 }
 $(document).ready(init);
