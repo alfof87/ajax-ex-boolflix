@@ -42,11 +42,32 @@ function getQuery(){
         for (var i = 0; i < results.length; i++) {
           var resultHTML = compiled(results[i]);
           target.append(resultHTML);
-        }
+
+          // var arrotondato = Math.round(numero);
+          // var x = data["vote_average"];
+          // console.log(x);
+          var vote = Math.ceil(data["vote_average"] / 2);
+
+          console.log(vote);
+
+          if (vote < 1) {
+            //agg 1 stella piena
+            //agg 4 stelle vuote
+          }else if (vote < 2) {
+            //agg 2 stelle piene
+            //agg 3 stelle vuote
+          }else if (vote < 3) {
+            //agg 3 stelle piene
+            //agg 2 stelle vuote
+          }else if (vote < 4) {
+            //agg 4 stelle piene
+            //agg 1 stelle vuote
+          }else if (vote < 5) {
+            //agg 5 stelle piene
+          }
         // var title = data["name"];
         // console.log(title);
-        var vote = data["vote_average"];
-        console.log(vote);
+       }
       },
       error: function(error){
         console.log(error);
