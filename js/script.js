@@ -33,40 +33,19 @@ function getQuery(){
       success: function (data){
 
         var results = data["results"];
-        console.log(results);
+
         var template = $("#movie-template").html();
         var compiled = Handlebars.compile(template);
         var target = $("#results");
 
 
         for (var i = 0; i < results.length; i++) {
+
+
+          results[i]["vote_average"] = getStars(results[i]["vote_average"]);
           var resultHTML = compiled(results[i]);
           target.append(resultHTML);
 
-          // var arrotondato = Math.round(numero);
-          // var x = data["vote_average"];
-          // console.log(x);
-          var vote = Math.ceil(data["vote_average"] / 2);
-
-          console.log(vote);
-
-          if (vote < 1) {
-            //agg 1 stella piena
-            //agg 4 stelle vuote
-          }else if (vote < 2) {
-            //agg 2 stelle piene
-            //agg 3 stelle vuote
-          }else if (vote < 3) {
-            //agg 3 stelle piene
-            //agg 2 stelle vuote
-          }else if (vote < 4) {
-            //agg 4 stelle piene
-            //agg 1 stelle vuote
-          }else if (vote < 5) {
-            //agg 5 stelle piene
-          }
-        // var title = data["name"];
-        // console.log(title);
        }
       },
       error: function(error){
@@ -76,7 +55,20 @@ function getQuery(){
     });
   });
 }
+function getStars(vote){
+  // console.log(vote);
+  // console.log(results);
+  vote = Math.ceil(vote / 2);
 
+  var starP = '<i class="fas fa-star"></i>';
+  var starV = '<i class="far fa-star"></i>';
+
+
+  var stars = starP.repeat(vote) + starV.repeat(5 - vote);
+  console.log(starP.repeat(vote) + starV.repeat(5 - vote));
+  return stars;
+
+}
 // function addSearchClickListener(){
 //   var target = $("#search");
 //   target.click(startSearch);
@@ -283,5 +275,6 @@ function init(){
   // addPoster();
   // getMovies();
   getQuery();
+
 }
 $(document).ready(init);
