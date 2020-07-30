@@ -45,15 +45,16 @@ function getQuery(){
         }
         // var title = data["name"];
         // console.log(title);
-
+        var vote = data["vote_average"];
+        console.log(vote);
       },
       error: function(error){
         console.log(error);
       }
+
     });
   });
 }
-
 
 // function addSearchClickListener(){
 //   var target = $("#search");
