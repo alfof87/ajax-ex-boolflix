@@ -17,7 +17,7 @@
         <button id="search" type="button" name="button">cerca</button>
       </div>
       <div id="results">
-        
+
       </div>
 
 
@@ -26,12 +26,16 @@
     <script id="movie-template" type="text/x-handlebars-template">
 
       <ul>
-            <li> {{ title }} </li>
-            <li> {{ original_title }} </li>
-            <li> {{ original_language }} </li>
-            <li> {{{ vote_average }}} </li>
-            <li> {{{ flag }}} </li>
-            <li> {{ poster }} </li>
+        <div class="card">
+          <li> {{ title }} </li>
+          <li> {{ original_title }} </li>
+          <li> {{ original_language }} </li>
+          <li> {{{ vote_average }}} </li>
+          <li> {{{ flag }}} </li>
+        </div>
+
+            <!--<li> {{ poster }} </li>-->
+            <img class="poster" src="https://image.tmdb.org/t/p/w342{{ poster_path }}">
       </ul>
 
     </script>
@@ -42,7 +46,7 @@
       <li> {{ original_language }} </li>
       <li> {{{ vote_average }}} </li>
       <li> {{{ flag }}} </li>
-      <li> {{ img }} </li>
+      <li> {{ poster }} </li>
 
     </script>
 

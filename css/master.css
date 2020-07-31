@@ -7,3 +7,12 @@
   width: 100px;
   height: 50px;
 }
+.card{
+  background-color: black;
+  width: 342px;
+  height: 500px;
+  color: white;
+}
+.fas{
+  color: yellow;
+}

@@ -67,8 +67,8 @@ function getStars(vote){
   var stars = starP.repeat(vote) + starV.repeat(5 - vote);
   console.log(starP.repeat(vote) + starV.repeat(5 - vote));
   return stars;
-
 }
+
 // function addSearchClickListener(){
 //   var target = $("#search");
 //   target.click(startSearch);
