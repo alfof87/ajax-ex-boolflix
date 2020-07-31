@@ -13,8 +13,13 @@
 
     <div class="container">
       <div class="header">
-        <input id="query" type="text" name="" value="">
-        <button id="search" type="button" name="button">cerca</button>
+        <div id="title">
+          <h1><strong>BOOLFIX</strong></h1>
+        </div>
+        <div id="input">
+          <input id="query" type="text" name="" value="">
+          <button id="search" type="button" name="button">cerca</button>
+        </div>
       </div>
       <div id="results">
 
@@ -25,12 +30,12 @@
 
     <script id="movie-template" type="text/x-handlebars-template">
 
-      <ul>
-        <div class="card">
-          <li> {{ title }} </li>
-          <li> {{ original_title }} </li>
-          <li> {{ original_language }} </li>
-          <li> {{{ vote_average }}} </li>
+      <ul class="relative">
+        <div class="card hide">
+          <li><span>Title:</span> {{ title }} </li>
+          <li><span>Original Title:</span> {{ original_title }} </li>
+          <li><span>Language:</span> {{ original_language }} </li>
+          <li><span>Vote:</span> {{{ vote_average }}} </li>
           <li> {{{ flag }}} </li>
         </div>
 

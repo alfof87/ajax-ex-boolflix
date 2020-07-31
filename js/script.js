@@ -41,7 +41,7 @@ function getQuery(){
 
         for (var i = 0; i < results.length; i++) {
 
-
+          getcard();
           results[i]["vote_average"] = getStars(results[i]["vote_average"]);
           var resultHTML = compiled(results[i]);
           target.append(resultHTML);
@@ -68,6 +68,18 @@ function getStars(vote){
   console.log(starP.repeat(vote) + starV.repeat(5 - vote));
   return stars;
 }
+
+
+
+function getcard(){
+  $(".relative").click(function(){
+    $(this).children(".card").toggle();
+  });
+}
+
+
+
+
 
 // function addSearchClickListener(){
 //   var target = $("#search");
