@@ -62,3 +62,7 @@ body{
 .show{
   display: block;
 }
+#reset{
+  width: 100px;
+  height: 20px;
+}

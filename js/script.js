@@ -42,6 +42,7 @@ function getQuery(){
         for (var i = 0; i < results.length; i++) {
 
           getcard();
+          reset();
           results[i]["vote_average"] = getStars(results[i]["vote_average"]);
           var resultHTML = compiled(results[i]);
           target.append(resultHTML);
@@ -77,6 +78,11 @@ function getcard(){
   });
 }
 
+function reset(){
+  $("#query").click(function(){
+    $(".relative").addClass(".hide");
+  })
+}
 
 
 
