@@ -79,8 +79,9 @@ function getcard(){
 }
 
 function reset(){
-  $("#query").click(function(){
-    $(".relative").addClass(".hide");
+  $("#reset").click(function(){
+    $("#results").empty();
+    // $(".relative").html("");
   })
 }
 
