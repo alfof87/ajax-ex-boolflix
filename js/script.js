@@ -57,7 +57,7 @@ function getQuery(){
   });
 }
 function getStars(vote){
-  // console.log(vote);
+  console.log(vote);
   // console.log(results);
   vote = Math.ceil(vote / 2);
 
@@ -66,7 +66,7 @@ function getStars(vote){
 
 
   var stars = starP.repeat(vote) + starV.repeat(5 - vote);
-  console.log(starP.repeat(vote) + starV.repeat(5 - vote));
+  // console.log(starP.repeat(vote) + starV.repeat(5 - vote));
   return stars;
 }
 
